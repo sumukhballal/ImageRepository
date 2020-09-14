@@ -1,0 +1,26 @@
+<!-- Content -->
+<div class="content" role="main">
+
+  <!-- Upload -->
+  <h2>UPLOAD</h2>
+  <p>Look at these great pictures, upload something and see it on the front page!</p>
+  <p>Valid Formats : JPEG | PNG | BMP</p>
+
+  <div class="card-container">
+    <div class="col-md-6">
+      <input type="file" (change)="onFileChanged($event)">
+    </div>
+    <a class="card" target="_blank" rel="noopener" (click)="onUpload()">
+      <span>Upload</span>
+    </a>
+  </div>
+  <!-- Message -->
+  <div *ngIf=message>{{message}}</div>
+  <!-- Next Steps -->
+  <h2>IMAGES</h2>
+  <div class="image-holder">
+
+  </div>
+</div>
+
+
