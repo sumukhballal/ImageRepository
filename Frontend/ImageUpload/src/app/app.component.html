@@ -8,6 +8,8 @@
 
   <div class="card-container">
     <div class="col-md-6">
+      <p>Name</p>
+      <input type="text" name="name" (change)="onNameChanged($event)">
       <input type="file" (change)="onFileChanged($event)">
     </div>
     <a class="card" target="_blank" rel="noopener" (click)="onUpload()">
@@ -18,9 +20,12 @@
   <div *ngIf=message>{{message}}</div>
   <!-- Next Steps -->
   <h2>IMAGES</h2>
-  <div class="image-holder">
+</div>
 
-  </div>
+<div class="image-holder">
+<div class="image" *ngFor="let image of images">
+  <img src="{{image}}">
+</div>
 </div>
 
 

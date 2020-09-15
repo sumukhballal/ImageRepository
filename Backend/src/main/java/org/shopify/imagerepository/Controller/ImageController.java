@@ -37,10 +37,8 @@ public class ImageController {
     }
 
     @GetMapping("/image/getall")
-    private void getAllImages()
+    private List<Image> getAllImages()
     {
-        for(Image image : imageRepository.findAll()) {
-            System.out.println(image.toString());
-        }
+        return imageRepository.findAll();
     }
 }

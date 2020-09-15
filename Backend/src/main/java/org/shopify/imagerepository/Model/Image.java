@@ -22,6 +22,14 @@ public class Image {
     @Column(name = "date")
     private Date date;
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     /* Actual image S3 URL*/
     @Column(name = "url")
     private String url;

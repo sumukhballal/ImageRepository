@@ -28,12 +28,14 @@ public class BucketController {
         }
 
         @PostMapping("/upload")
-        public  String uploadFile(@RequestPart(value="file") MultipartFile file) {
-            logger.info("Upload file "+file.getName());
+        public  String uploadFile(@RequestPart(value="file") MultipartFile file,
+                                  @RequestPart(value="name",required = false) String name) {
+            String currName=(name==null)?file.getOriginalFilename():name;
+            logger.info("Upload file "+name);
             String url = this.amazonClient.uploadFile(file);
             logger.info("Uploaded to S3 Bucket "+url);
             /* Store image details in MYSQL */
-            this.databaseClient.store(file.getName(),file.getContentType(),url);
+            this.databaseClient.store(currName,file.getContentType(),url);
 
             return "Upload Image successfully!";
         }
